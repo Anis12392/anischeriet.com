@@ -3,7 +3,7 @@
     "name": "Docubridge",
     "icon": "📄",
     "description": "Document translation tool",
-    "url": "#",
+    "url": "https://doc-translator.vercel.app",
     "status": "done",
     "day": 1,
     "date": "Feb 20, 2026"
@@ -45,10 +45,10 @@
     "date": "Feb 24, 2026"
   },
   {
-    "name": "AutoMailer",
-    "icon": "📧",
+    "name": "Reeyia.ai",
+    "icon": "🤖",
     "description": "Automated email outreach tool",
-    "url": "#",
+    "url": "https://automailer.vercel.app",
     "status": "new",
     "day": 6,
     "date": "Feb 25, 2026"

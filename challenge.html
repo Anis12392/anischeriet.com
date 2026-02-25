@@ -26,8 +26,12 @@
       <p class="tagline"><em>I build things to learn. 30 apps, no excuses.</em></p>
 
       <div class="sidebar-newsletter">
-        <p class="newsletter-text">Follow the challenge — I share every build, every lesson, every failure.</p>
-        <a href="https://x.com/AnisCHERIEET" target="_blank" class="btn-follow">Follow on Twitter</a>
+        <p class="newsletter-text">Get notified when I ship something new.</p>
+        <form id="email-form" class="email-form">
+          <input type="email" id="email-input" placeholder="your@email.com" required class="email-input">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </form>
+        <p id="email-msg" class="email-msg"></p>
       </div>
 
       <div class="sidebar-social">
@@ -52,6 +56,37 @@
   </div>
 
   <script>
+    // Newsletter form → Google Sheets
+    const SHEET_URL = 'GOOGLE_APPS_SCRIPT_URL'; // Replace after deploying Apps Script
+
+    document.getElementById('email-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = document.getElementById('email-input');
+      const msg = document.getElementById('email-msg');
+      const btn = e.target.querySelector('button');
+
+      btn.disabled = true;
+      btn.textContent = '...';
+
+      try {
+        await fetch(SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: input.value })
+        });
+        msg.textContent = "You're in! 🎉";
+        msg.className = 'email-msg success';
+        input.value = '';
+      } catch {
+        msg.textContent = 'Something went wrong. Try again.';
+        msg.className = 'email-msg error';
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Subscribe';
+    });
+
     const TOTAL_APPS = 30;
     const UPCOMING_SLOTS = 4;
     const badgeMap = { done: 'Done', active: 'Active', new: 'New' };
