@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Docubridge",
+    "icon": "📄",
+    "description": "Document translation tool",
+    "url": "#",
+    "status": "done",
+    "day": 1,
+    "date": "Feb 20, 2026"
+  },
+  {
+    "name": "Resize Photo",
+    "icon": "📸",
+    "description": "Image compression & resize tool",
+    "url": "#",
+    "status": "done",
+    "day": 2,
+    "date": "Feb 22, 2026"
+  },
+  {
+    "name": "Event Sponsor Marketplace",
+    "icon": "🤝",
+    "description": "Platform connecting events with sponsors",
+    "url": "#",
+    "status": "done",
+    "day": 3,
+    "date": "Feb 22, 2026"
+  },
+  {
+    "name": "anischeriet.com",
+    "icon": "🌐",
+    "description": "Personal brand website",
+    "url": "https://anischeriet.com",
+    "status": "done",
+    "day": 4,
+    "date": "Feb 22, 2026"
+  },
+  {
+    "name": "Chargebotic",
+    "icon": "⚡",
+    "description": "EV charging management platform",
+    "url": "https://chargebotic.com",
+    "status": "active",
+    "day": 5,
+    "date": "Feb 24, 2026"
+  },
+  {
+    "name": "AutoMailer",
+    "icon": "📧",
+    "description": "Automated email outreach tool",
+    "url": "#",
+    "status": "new",
+    "day": 6,
+    "date": "Feb 25, 2026"
+  }
+]

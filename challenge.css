@@ -1,0 +1,283 @@
+/* ============================================
+   30 App Challenge — Marc Lou Style
+   2-column: fixed sidebar + card grid
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f9fafb;
+  color: #1a1a1a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---- Layout: 2-column ---- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Sidebar (fixed left) ---- */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.location-icon {
+  font-size: 0.9rem;
+}
+
+.separator {
+  color: #ccc;
+}
+
+.stat-highlight {
+  font-weight: 700;
+  color: #6c5ce7;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Sidebar newsletter CTA */
+.sidebar-newsletter {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.newsletter-text {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.btn-follow {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-follow:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* Sidebar social icons */
+.sidebar-social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.social-icon {
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.social-icon:hover {
+  color: #1a1a1a;
+}
+
+/* ---- Main: card grid ---- */
+.main {
+  flex: 1;
+  padding: 40px 0 40px 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-content: start;
+}
+
+/* ---- Cards ---- */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+a.card:hover {
+  border-color: #ccc;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.card-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.card-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 50px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.badge-new {
+  background: rgba(100, 100, 255, 0.1);
+  color: #6c5ce7;
+}
+
+.badge-active {
+  background: rgba(255, 140, 6, 0.1);
+  color: #e07800;
+}
+
+.badge-done {
+  background: rgba(74, 184, 100, 0.1);
+  color: #3a9a54;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: #888;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.card-day {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6c5ce7;
+}
+
+.card-date {
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+/* ---- Upcoming cards ---- */
+.card-upcoming {
+  opacity: 0.45;
+  border-style: dashed;
+  cursor: default;
+}
+
+.card-upcoming:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #e8e8e8 !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 32px 16px 24px;
+  }
+
+  .main {
+    padding: 0 0 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .layout {
+    padding: 0 16px;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}

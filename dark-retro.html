@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anis Cheriet — Version Dark</title>
+  <title>Anis Cheriet | Entrepreneur & Builder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -108,17 +108,17 @@
       font-size: 1.3rem;
       color: var(--mustard);
       margin-bottom: 1rem;
-      transform: rotate(-2deg);
     }
 
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
       color: var(--text);
+      max-width: 600px;
     }
 
     .hero-name .accent {
@@ -190,8 +190,7 @@
     .polaroid-deco-1 .polaroid-img {
       width: 120px; height: 110px;
       background: var(--bg-lighter);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); font-size: 2rem;
+      overflow: hidden;
     }
 
     .polaroid-deco-1 .polaroid-caption {
@@ -211,8 +210,7 @@
     .polaroid-deco-2 .polaroid-img {
       width: 100px; height: 90px;
       background: var(--bg-lighter);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); font-size: 2rem;
+      overflow: hidden;
     }
 
     .polaroid-deco-2 .polaroid-caption {
@@ -275,11 +273,7 @@
       width: 100%;
       aspect-ratio: 4/3;
       background: var(--bg-lighter);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: var(--text-muted);
+      overflow: hidden;
     }
 
     .about-polaroid-caption {
@@ -493,6 +487,67 @@
       font-size: 1rem;
     }
 
+    /* Journey Timeline */
+    .journey-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .journey-timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(138, 109, 69, 0.25);
+    }
+
+    .journey-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+
+    .journey-marker {
+      position: absolute;
+      left: -2rem;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .journey-item:first-child .journey-marker {
+      background: var(--mustard);
+      box-shadow: 0 0 0 2px var(--mustard), 0 0 12px rgba(196, 154, 60, 0.3);
+    }
+
+    .journey-date {
+      font-family: 'Caveat', cursive;
+      font-size: 1.05rem;
+      color: var(--mustard);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .journey-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .journey-content p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
     /* Reveal animation */
     .reveal {
       opacity: 0;
@@ -530,8 +585,9 @@
     <a href="#" class="nav-logo">Anis Cheriet</a>
     <div class="nav-links">
       <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#tracker">Tracker</a>
+      <a href="#speaking">Speaking</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -540,20 +596,20 @@
     <!-- Hero -->
     <section class="hero">
       <div class="polaroid-deco polaroid-deco-1">
-        <div class="polaroid-img">&#9758;</div>
+        <div class="polaroid-img"><img src="images/hero-portrait.jpg" alt="Anis Cheriet portrait" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
         <div class="polaroid-caption">that's me</div>
       </div>
       <div class="polaroid-deco polaroid-deco-2">
-        <div class="polaroid-img">&#9733;</div>
+        <div class="polaroid-img"><img src="images/speaking.jpg" alt="Anis speaking at event" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
         <div class="polaroid-caption">building stuff</div>
       </div>
 
-      <p class="hero-badge">nice to meet you!</p>
-      <h1 class="hero-name">Anis<br><span class="accent">Cheriet</span></h1>
-      <p class="hero-tagline">Entrepreneur & consultant helping people build things that matter. Warm conversations, real results.</p>
+      <p class="hero-badge">Entrepreneur &middot; Builder &middot; Explorer</p>
+      <h1 class="hero-name">I deployed EV charging stations <span class="accent">across Europe.</span></h1>
+      <p class="hero-tagline">Now I build in public. I explore new technologies, launch products, and share everything I learn along the way.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Let's talk</a>
-        <a href="#work" class="btn btn-outline">See my work</a>
+        <a href="#about" class="btn btn-primary">Discover my story</a>
+        <a href="#tracker" class="btn btn-outline">See what I'm building</a>
       </div>
     </section>
 
@@ -564,45 +620,80 @@
     <section id="about" class="section">
       <div class="about-grid">
         <div class="about-polaroid tape">
-          <div class="about-polaroid-img">&#9786;</div>
-          <p class="about-polaroid-caption">your photo here</p>
+          <div class="about-polaroid-img"><img src="images/photo-skyline.jpg" alt="Anis Cheriet devant skyline" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <p class="about-polaroid-caption">Anis Cheriet</p>
         </div>
         <div class="about-text">
-          <p class="section-label">a little about me</p>
-          <h2 class="section-title">The person behind<br>the screen.</h2>
-          <p>I help founders and businesses go from idea to reality. Not with hype or buzzwords — with honest conversations and hands-on work.</p>
-          <p>I believe the best partnerships start with trust. That's why I'm here — so you can get to know me before we even talk.</p>
+          <p class="section-label">About</p>
+          <h2 class="section-title">Who is Anis Cheriet?</h2>
+          <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 1.25rem;">I'm an entrepreneur who builds things from scratch. Not decks. Not strategies. Real products, real infrastructure, real businesses.</p>
+          <p>I studied entrepreneurship, then went straight into the field. I deployed EV charging networks across Europe — figuring out logistics, regulations, and operations in multiple countries. I've lived and worked in different countries, which taught me how to adapt fast and think globally.</p>
+          <p>I've built mobile apps, explored AI applied to electric transportation, and launched hardware prototypes with small teams. I don't wait for the perfect plan — I ship, learn, and iterate.</p>
+          <p>Right now, I'm on a new chapter: building one project at a time, in public. Every day is a new challenge. Follow the journey below.</p>
         </div>
       </div>
     </section>
 
-    <!-- What I Do -->
-    <section id="work" class="section">
-      <p class="section-label">what I do</p>
-      <h2 class="section-title">How I can help.</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">&#9881;</div>
-          <h3>Consulting</h3>
-          <p>Strategic guidance for your business, product, or idea. Clear direction, no fluff.</p>
+    <!-- Journey -->
+    <section id="journey" class="section">
+      <p class="section-label">Journey</p>
+      <h2 class="section-title">What I've built so far.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">From EV infrastructure to AI products — here's the path.</p>
+      <div class="journey-timeline">
+        <div class="journey-item">
+          <div class="journey-marker"></div>
+          <div class="journey-content">
+            <span class="journey-date">Ongoing</span>
+            <h3>Building in Public</h3>
+            <p>Launching a new project every few days. Apps, tools, products — shipping fast and sharing the process openly.</p>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">&#9889;</div>
-          <h3>Building</h3>
-          <p>From concept to launch. I help you build the thing — not just talk about it.</p>
+        <div class="journey-item">
+          <div class="journey-marker"></div>
+          <div class="journey-content">
+            <span class="journey-date">2023 — 2025</span>
+            <h3>Anysense — AI & Electric Transportation</h3>
+            <p>Founded Anysense to explore how AI can transform electric transportation. Built prototypes, presented at conferences, and led product development from concept to demo.</p>
+          </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">&#9829;</div>
-          <h3>Partnerships</h3>
-          <p>Looking for a collaborator, not just a contractor? Let's explore what we can create together.</p>
+        <div class="journey-item">
+          <div class="journey-marker"></div>
+          <div class="journey-content">
+            <span class="journey-date">2021 — 2023</span>
+            <h3>EV Charging Infrastructure</h3>
+            <p>Deployed EV charging stations across Europe. Managed logistics, regulations, partnerships, and on-the-ground operations across multiple countries.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-marker"></div>
+          <div class="journey-content">
+            <span class="journey-date">Earlier</span>
+            <h3>Entrepreneurship Studies & First Ventures</h3>
+            <p>Studied entrepreneurship, built a mobile app, and started my first ventures. Lived in multiple countries — learning to adapt, build, and move fast.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Table -->
-    <section id="projects" class="projects-table-section section">
-      <p class="section-label">what I'm building</p>
-      <h2 class="section-title">Project tracker.</h2>
+    <!-- Tracker -->
+    <section id="tracker" class="projects-table-section section">
+      <p class="section-label">Tracker</p>
+      <h2 class="section-title">What I'm building now.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">One project at a time. Shipped in public.</p>
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div style="background: var(--cream); padding: 8px 8px 30px; box-shadow: 3px 5px 20px var(--polaroid-shadow); transform: rotate(-1deg); transition: transform 0.3s;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'" onmouseout="this.style.transform='rotate(-1deg)'">
+          <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-lighter);"><img src="images/speaking.jpg" alt="Speaking at event" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <p style="font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--brown); text-align: center; margin-top: 6px;">speaking & sharing</p>
+        </div>
+        <div style="background: var(--cream); padding: 8px 8px 30px; box-shadow: 3px 5px 20px var(--polaroid-shadow); transform: rotate(2deg); transition: transform 0.3s;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'" onmouseout="this.style.transform='rotate(2deg)'">
+          <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-lighter);"><img src="images/tech-tablet.jpg" alt="Using tablet" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <p style="font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--brown); text-align: center; margin-top: 6px;">tech in action</p>
+        </div>
+        <div style="background: var(--cream); padding: 8px 8px 30px; box-shadow: 3px 5px 20px var(--polaroid-shadow); transform: rotate(-1.5deg); transition: transform 0.3s;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'" onmouseout="this.style.transform='rotate(-1.5deg)'">
+          <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-lighter);"><img src="images/team-demo.jpg" alt="Team demo" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <p style="font-family: 'Caveat', cursive; font-size: 0.9rem; color: var(--brown); text-align: center; margin-top: 6px;">team vibes</p>
+        </div>
+      </div>
       <table class="projects-table">
         <thead>
           <tr>
@@ -645,7 +736,7 @@
           </tr>
           <tr>
             <td class="project-day">06</td>
-            <td class="project-name">Day 6 — TBD</td>
+            <td class="project-name">Day 6 — AutoMailer</td>
             <td class="project-status"><span class="status-badge status-new">New</span></td>
             <td class="project-date">Feb 25, 2026</td>
           </tr>
@@ -653,23 +744,55 @@
       </table>
     </section>
 
+    <!-- Speaking & Featured -->
+    <section id="speaking" class="section" style="text-align: center;">
+      <p class="section-label">Speaking & Featured</p>
+      <h2 class="section-title">On stage & in the press.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">Conferences, panels, and features. Add your links here as they come.</p>
+      <div class="services-grid" style="max-width: 600px; margin: 0 auto;">
+        <div class="service-card">
+          <div class="service-icon">&#9654;</div>
+          <h3>How AI Changed Electric Transportation</h3>
+          <p>Keynote presentation at Anysense event on AI applications in electric mobility.</p>
+          <span style="display: inline-block; margin-top: 0.75rem; font-family: 'Caveat', cursive; color: var(--mustard); font-size: 1rem;">Keynote</span>
+        </div>
+        <div class="service-card" style="border-style: dashed;">
+          <div class="service-icon">+</div>
+          <h3>Your next talk or feature</h3>
+          <p>Add your conference links, podcast appearances, and press features here.</p>
+          <span style="display: inline-block; margin-top: 0.75rem; font-family: 'Caveat', cursive; color: var(--mustard); font-size: 1rem;">Coming soon</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="contact-section">
-      <p class="section-label">say hello</p>
-      <h2 class="section-title">Let's start a conversation.</h2>
-      <p class="contact-text">Whether you have a project, a question, or just want to connect — I'd love to hear from you.</p>
-      <a href="mailto:hello@anischeriet.com" class="btn btn-primary">Get in touch</a>
+      <p class="section-label">Let's connect</p>
+      <h2 class="section-title">Want to talk, collaborate,<br>or just say hi?</h2>
+      <p class="contact-text">I'm always open to interesting conversations, partnerships, and new ideas.</p>
+      <a href="mailto:hello@anischeriet.com" class="btn btn-primary">hello@anischeriet.com</a>
       <div class="contact-links">
-        <a href="#" class="contact-chip">Twitter</a>
-        <a href="#" class="contact-chip">LinkedIn</a>
-        <a href="#" class="contact-chip">GitHub</a>
-        <a href="mailto:hello@anischeriet.com" class="contact-chip">Email</a>
+        <a href="https://linkedin.com/in/anischeriet" class="contact-chip" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com/anischeriet" class="contact-chip" target="_blank">Twitter</a>
+        <a href="https://instagram.com/anischeriet" class="contact-chip" target="_blank">Instagram</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p class="footer-text"><span class="handwritten">made with care</span> &mdash; &copy; 2026 Anis Cheriet</p>
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 860px; margin: 0 auto; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <span style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--text); font-size: 0.95rem;">Anis Cheriet</span>
+        <span class="footer-text" style="margin-left: 1rem;">&copy; 2026. All rights reserved.</span>
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#about" style="font-size: 0.8rem; color: var(--text-muted);">About</a>
+        <a href="#journey" style="font-size: 0.8rem; color: var(--text-muted);">Journey</a>
+        <a href="#tracker" style="font-size: 0.8rem; color: var(--text-muted);">Tracker</a>
+        <a href="#speaking" style="font-size: 0.8rem; color: var(--text-muted);">Speaking</a>
+        <a href="#contact" style="font-size: 0.8rem; color: var(--text-muted);">Contact</a>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -679,7 +802,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section, .service-card, .about-polaroid, .projects-table-section').forEach(el => {
+    document.querySelectorAll('.section, .service-card, .about-polaroid, .projects-table-section, .journey-item').forEach(el => {
       el.classList.add('reveal');
       observer.observe(el);
     });
