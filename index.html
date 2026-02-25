@@ -19,6 +19,7 @@
         <a href="#about">About</a>
         <a href="#expertise">Expertise</a>
         <a href="#projects">Projects</a>
+        <a href="#tracker">Tracker</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </div>
@@ -33,6 +34,7 @@
     <a href="#about">About</a>
     <a href="#expertise">Expertise</a>
     <a href="#projects">Projects</a>
+    <a href="#tracker">Tracker</a>
     <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </div>
@@ -177,6 +179,64 @@
     </div>
   </section>
 
+  <!-- Project Tracker Section -->
+  <section id="tracker" class="section-tracker">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="tag">Tracker</span>
+        <h2 class="h2">What I'm building.</h2>
+      </div>
+      <table class="tracker-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Project</th>
+            <th>Status</th>
+            <th class="tracker-date-col">Started</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tracker-day">01</td>
+            <td class="tracker-name">Docubridge</td>
+            <td class="tracker-status"><span class="tracker-badge tracker-done">Done</span></td>
+            <td class="tracker-date">Feb 20, 2026</td>
+          </tr>
+          <tr>
+            <td class="tracker-day">02</td>
+            <td class="tracker-name">Resize Photo</td>
+            <td class="tracker-status"><span class="tracker-badge tracker-done">Done</span></td>
+            <td class="tracker-date">Feb 22, 2026</td>
+          </tr>
+          <tr>
+            <td class="tracker-day">03</td>
+            <td class="tracker-name">Event Sponsor Marketplace</td>
+            <td class="tracker-status"><span class="tracker-badge tracker-done">Done</span></td>
+            <td class="tracker-date">Feb 22, 2026</td>
+          </tr>
+          <tr>
+            <td class="tracker-day">04</td>
+            <td class="tracker-name">anischeriet.com</td>
+            <td class="tracker-status"><span class="tracker-badge tracker-done">Done</span></td>
+            <td class="tracker-date">Feb 22, 2026</td>
+          </tr>
+          <tr>
+            <td class="tracker-day">05</td>
+            <td class="tracker-name">Chargebotic</td>
+            <td class="tracker-status"><span class="tracker-badge tracker-active">Active</span></td>
+            <td class="tracker-date">Feb 24, 2026</td>
+          </tr>
+          <tr>
+            <td class="tracker-day">06</td>
+            <td class="tracker-name">&mdash;</td>
+            <td class="tracker-status"><span class="tracker-badge tracker-new">New</span></td>
+            <td class="tracker-date">Feb 25, 2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- Testimonials Section -->
   <section id="testimonials" class="section-testimonials">
     <div class="container">
@@ -251,6 +311,7 @@
           <a href="#about">About</a>
           <a href="#expertise">Expertise</a>
           <a href="#projects">Projects</a>
+          <a href="#tracker">Tracker</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -268,7 +329,7 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // Auto-add reveal to sections & cards
-    document.querySelectorAll('.section-about, .section-expertise, .section-projects, .section-testimonials, .section-cta, .expertise-card, .project-card, .testimonial-card, .cta-block').forEach(el => {
+    document.querySelectorAll('.section-about, .section-expertise, .section-projects, .section-tracker, .section-testimonials, .section-cta, .expertise-card, .project-card, .testimonial-card, .cta-block').forEach(el => {
       el.classList.add('reveal');
       observer.observe(el);
     });

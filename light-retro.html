@@ -329,6 +329,89 @@
       line-height: 1.7;
     }
 
+    /* Projects Table */
+    .projects-table-section {
+      padding: 5rem 0;
+    }
+
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    .projects-table thead th {
+      font-family: 'Caveat', cursive;
+      font-size: 1.05rem;
+      color: var(--accent);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid rgba(108, 93, 77, 0.2);
+      font-weight: 500;
+    }
+
+    .projects-table tbody tr {
+      border-bottom: 1px solid rgba(108, 93, 77, 0.1);
+      transition: background 0.2s;
+    }
+
+    .projects-table tbody tr:hover {
+      background: rgba(108, 93, 77, 0.05);
+    }
+
+    .projects-table td {
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .projects-table .project-day {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+      width: 60px;
+    }
+
+    .projects-table .project-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .projects-table .project-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .projects-table .project-status {
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .status-done {
+      background: rgba(74, 160, 100, 0.12);
+      color: #3a9a55;
+    }
+
+    .status-active {
+      background: rgba(196, 93, 44, 0.12);
+      color: var(--accent);
+    }
+
+    .status-new {
+      background: rgba(196, 154, 60, 0.12);
+      color: var(--brown);
+    }
+
     /* Contact */
     .contact-section {
       text-align: center;
@@ -443,6 +526,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -510,6 +594,60 @@
       </div>
     </section>
 
+    <!-- Projects Table -->
+    <section id="projects" class="projects-table-section section">
+      <p class="section-label">what I'm building</p>
+      <h2 class="section-title">Project tracker.</h2>
+      <table class="projects-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Project</th>
+            <th>Status</th>
+            <th style="text-align:right">Started</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="project-day">01</td>
+            <td class="project-name">Docubridge</td>
+            <td class="project-status"><span class="status-badge status-done">Done</span></td>
+            <td class="project-date">Feb 20, 2026</td>
+          </tr>
+          <tr>
+            <td class="project-day">02</td>
+            <td class="project-name">Resize Photo</td>
+            <td class="project-status"><span class="status-badge status-done">Done</span></td>
+            <td class="project-date">Feb 22, 2026</td>
+          </tr>
+          <tr>
+            <td class="project-day">03</td>
+            <td class="project-name">Event Sponsor Marketplace</td>
+            <td class="project-status"><span class="status-badge status-done">Done</span></td>
+            <td class="project-date">Feb 22, 2026</td>
+          </tr>
+          <tr>
+            <td class="project-day">04</td>
+            <td class="project-name">anischeriet.com</td>
+            <td class="project-status"><span class="status-badge status-done">Done</span></td>
+            <td class="project-date">Feb 22, 2026</td>
+          </tr>
+          <tr>
+            <td class="project-day">05</td>
+            <td class="project-name">Chargebotic</td>
+            <td class="project-status"><span class="status-badge status-active">Active</span></td>
+            <td class="project-date">Feb 24, 2026</td>
+          </tr>
+          <tr>
+            <td class="project-day">06</td>
+            <td class="project-name">—</td>
+            <td class="project-status"><span class="status-badge status-new">New</span></td>
+            <td class="project-date">Feb 25, 2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="contact-section">
       <p class="section-label">say hello</p>
@@ -536,7 +674,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section, .service-card, .about-polaroid').forEach(el => {
+    document.querySelectorAll('.section, .service-card, .about-polaroid, .projects-table-section').forEach(el => {
       el.classList.add('reveal');
       observer.observe(el);
     });

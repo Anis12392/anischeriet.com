@@ -515,6 +515,101 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
+/* ---- Tracker Section ---- */
+.section-tracker {
+  padding: 100px 0;
+  background: var(--bg-alt);
+}
+
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.tracker-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.tracker-date-col {
+  text-align: right !important;
+}
+
+.tracker-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.tracker-table tbody tr:hover {
+  background: var(--bg-card-hover);
+}
+
+.tracker-table td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+}
+
+.tracker-day {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.85rem;
+  width: 60px;
+  opacity: 0.7;
+}
+
+.tracker-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tracker-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.tracker-status {
+  text-align: center;
+}
+
+.tracker-badge {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tracker-done {
+  background: rgba(74, 180, 100, 0.1);
+  color: #4ab864;
+  border: 1px solid rgba(74, 180, 100, 0.2);
+}
+
+.tracker-active {
+  background: rgba(255, 140, 6, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(255, 140, 6, 0.2);
+}
+
+.tracker-new {
+  background: rgba(130, 130, 255, 0.1);
+  color: #8888ff;
+  border: 1px solid rgba(130, 130, 255, 0.2);
+}
+
 /* ---- Testimonials Section ---- */
 .section-testimonials {
   padding: 100px 0;
