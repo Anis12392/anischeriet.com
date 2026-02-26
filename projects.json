@@ -3,7 +3,7 @@
     "name": "Docubridge",
     "icon": "📄",
     "description": "Document translation tool",
-    "url": "https://doc-translator.vercel.app",
+    "url": "https://doc-translator-psi.vercel.app",
     "status": "done",
     "day": 1,
     "date": "Feb 20, 2026"
@@ -12,7 +12,7 @@
     "name": "Resize Photo",
     "icon": "📸",
     "description": "Image compression & resize tool",
-    "url": "#",
+    "url": "https://image-compressor-theta-plum.vercel.app",
     "status": "done",
     "day": 2,
     "date": "Feb 22, 2026"
@@ -51,6 +51,15 @@
     "url": "https://automailer.vercel.app",
     "status": "new",
     "day": 6,
+    "date": "Feb 25, 2026"
+  },
+  {
+    "name": "Dump.ai",
+    "icon": "💭",
+    "description": "Turn raw thoughts into polished social posts",
+    "url": "#",
+    "status": "new",
+    "day": 7,
     "date": "Feb 25, 2026"
   }
 ]
