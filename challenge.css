@@ -169,32 +169,40 @@ a { color: inherit; text-decoration: none; }
   color: #1a1a1a;
 }
 
-/* ---- View toggle (in sidebar) ---- */
+/* ---- Main column wrapper ---- */
+.main-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 40px 48px;
+}
+
+/* ---- View toggle (top-right, icon only) ---- */
 .view-toggle {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
 }
 
 .view-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 6px;
   background: #fff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #888;
+  color: #bbb;
   cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
+  transition: all 0.15s;
 }
 
 .view-btn:hover {
   border-color: #ccc;
-  color: #555;
+  color: #888;
 }
 
 .view-btn.active {
@@ -204,14 +212,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .view-btn svg {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 /* ---- Main: card grid ---- */
 .main {
   flex: 1;
-  padding: 40px 0 40px 48px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
@@ -393,8 +400,11 @@ a.card:hover {
     padding: 32px 16px 24px;
   }
 
-  .main {
+  .main-col {
     padding: 24px 0 40px;
+  }
+
+  .main {
     grid-template-columns: repeat(2, 1fr);
   }
 }
