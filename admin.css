@@ -1,13 +1,14 @@
 /* ============================================
    Admin Panel — anischeriet.com
+   Clean white/grey design
    ============================================ */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0f0f0f;
-  color: #e0e0e0;
+  background: #f5f5f5;
+  color: #333;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -22,35 +23,36 @@ body {
 }
 
 .login-box {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 16px;
   padding: 48px 40px;
   width: 100%;
   max-width: 400px;
   text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
 .login-box h1 {
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 8px;
-  color: #fff;
+  color: #111;
 }
 
 .login-box p {
   font-size: 0.85rem;
-  color: #888;
+  color: #999;
   margin-bottom: 24px;
 }
 
 .login-box input {
   width: 100%;
   padding: 12px 16px;
-  background: #0f0f0f;
-  border: 1px solid #333;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
-  color: #fff;
+  color: #333;
   font-size: 0.9rem;
   font-family: inherit;
   outline: none;
@@ -59,7 +61,7 @@ body {
 }
 
 .login-box input:focus {
-  border-color: #6c5ce7;
+  border-color: #333;
 }
 
 .login-box .btn {
@@ -91,19 +93,19 @@ body {
   justify-content: space-between;
   margin-bottom: 40px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .dash-header h1 {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #fff;
+  color: #111;
 }
 
 .dash-header .btn-logout {
   background: transparent;
-  border: 1px solid #333;
-  color: #888;
+  border: 1px solid #ddd;
+  color: #999;
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 0.8rem;
@@ -119,17 +121,18 @@ body {
 
 /* ---- Sections ---- */
 .section {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: #fff;
+  border: 1px solid #e8e8e8;
   border-radius: 14px;
   padding: 28px;
   margin-bottom: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
 }
 
 .section-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: #111;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -149,7 +152,7 @@ body {
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #999;
+  color: #888;
   margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -160,10 +163,10 @@ body {
 .form-group select {
   width: 100%;
   padding: 10px 14px;
-  background: #0f0f0f;
-  border: 1px solid #333;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  color: #fff;
+  color: #333;
   font-size: 0.85rem;
   font-family: inherit;
   outline: none;
@@ -173,7 +176,7 @@ body {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #6c5ce7;
+  border-color: #333;
 }
 
 .form-group textarea {
@@ -200,7 +203,7 @@ body {
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #333;
+  border: 3px solid #e8e8e8;
 }
 
 .avatar-upload .btn {
@@ -218,7 +221,7 @@ body {
   align-items: center;
   gap: 6px;
   padding: 10px 20px;
-  background: #6c5ce7;
+  background: #111;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -230,7 +233,7 @@ body {
 }
 
 .btn:hover {
-  background: #5a4bd6;
+  background: #333;
   transform: translateY(-1px);
 }
 
@@ -256,13 +259,13 @@ body {
 
 .btn-ghost {
   background: transparent;
-  border: 1px solid #333;
-  color: #ccc;
+  border: 1px solid #ddd;
+  color: #666;
 }
 
 .btn-ghost:hover {
-  border-color: #6c5ce7;
-  color: #6c5ce7;
+  border-color: #333;
+  color: #333;
 }
 
 /* ---- Projects table ---- */
@@ -276,7 +279,7 @@ body {
   gap: 12px;
   align-items: center;
   padding: 12px 0;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .project-row:last-child {
@@ -291,12 +294,12 @@ body {
 .project-row .proj-name {
   font-weight: 600;
   font-size: 0.85rem;
-  color: #fff;
+  color: #111;
 }
 
 .project-row .proj-desc {
   font-size: 0.8rem;
-  color: #888;
+  color: #999;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -310,9 +313,9 @@ body {
   border-radius: 50px;
 }
 
-.proj-status.done { background: rgba(74,184,100,0.15); color: #3a9a54; }
-.proj-status.active { background: rgba(255,140,6,0.15); color: #e07800; }
-.proj-status.new { background: rgba(100,100,255,0.15); color: #6c5ce7; }
+.proj-status.done { background: rgba(74,184,100,0.1); color: #3a9a54; }
+.proj-status.active { background: rgba(255,140,6,0.1); color: #e07800; }
+.proj-status.new { background: rgba(100,100,255,0.1); color: #6c5ce7; }
 
 .project-actions {
   display: flex;
@@ -330,7 +333,7 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.3);
   z-index: 100;
   align-items: center;
   justify-content: center;
@@ -342,18 +345,19 @@ body {
 }
 
 .modal {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 16px;
   padding: 32px;
   width: 100%;
   max-width: 500px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
 }
 
 .modal h2 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #fff;
+  color: #111;
   margin-bottom: 20px;
 }
 
@@ -364,43 +368,19 @@ body {
   margin-top: 24px;
 }
 
-/* ---- Save bar ---- */
-.save-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #1a1a1a;
-  border-top: 1px solid #2a2a2a;
-  padding: 16px 24px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  z-index: 50;
-}
-
-.save-bar.active {
-  display: flex;
-}
-
-.save-bar .save-status {
-  font-size: 0.85rem;
-  color: #888;
-}
-
 /* ---- Toast notifications ---- */
 .toast {
   position: fixed;
-  bottom: 80px;
+  bottom: 24px;
   right: 24px;
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
   padding: 12px 20px;
   font-size: 0.85rem;
-  color: #fff;
+  color: #333;
   z-index: 200;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.3s;
@@ -411,8 +391,8 @@ body {
   opacity: 1;
 }
 
-.toast.success { border-color: #3a9a54; }
-.toast.error { border-color: #e74c3c; }
+.toast.success { border-left: 3px solid #3a9a54; }
+.toast.error { border-left: 3px solid #e74c3c; }
 
 /* ---- GitHub token setup ---- */
 .token-status {
@@ -443,10 +423,7 @@ body {
     gap: 8px;
   }
 
-  .project-row .proj-desc {
-    display: none;
-  }
-
+  .project-row .proj-desc,
   .project-row .proj-status {
     display: none;
   }
