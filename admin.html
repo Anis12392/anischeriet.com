@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — anischeriet.com</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ====== LOGIN SCREEN ====== -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-box">
+      <h1>Admin Panel</h1>
+      <p>anischeriet.com</p>
+      <input type="password" id="password-input" placeholder="Enter password" autofocus>
+      <button class="btn" onclick="attemptLogin()">Unlock</button>
+      <p class="login-error" id="login-error"></p>
+    </div>
+  </div>
+
+  <!-- ====== DASHBOARD ====== -->
+  <div class="dashboard" id="dashboard">
+
+    <div class="dash-header">
+      <h1>Admin Panel</h1>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- GitHub Token Setup -->
+    <div class="section" id="section-github">
+      <div class="section-title"><span>🔑</span> GitHub Connection</div>
+      <div class="token-status">
+        <div class="token-dot" id="token-dot"></div>
+        <span id="token-status-text">Checking...</span>
+      </div>
+      <div class="form-group">
+        <label>GitHub Personal Access Token</label>
+        <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx">
+      </div>
+      <p style="font-size:0.75rem;color:#666;margin-bottom:12px;">
+        Create a token at GitHub > Settings > Developer settings > Personal access tokens > Fine-grained tokens.
+        Give it read/write access to the <strong>anischeriet.com</strong> repo (Contents permission).
+      </p>
+      <button class="btn btn-sm" onclick="saveToken()">Save Token</button>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="section">
+      <div class="section-title"><span>👤</span> Profile</div>
+      <div class="avatar-upload">
+        <img src="images/hero-portrait.jpg" alt="Avatar" class="avatar-preview" id="avatar-preview">
+        <div>
+          <button class="btn btn-sm btn-ghost" onclick="document.getElementById('avatar-file').click()">Change Photo</button>
+          <input type="file" id="avatar-file" accept="image/*" onchange="handleAvatarUpload(event)">
+          <p style="font-size:0.7rem;color:#666;margin-top:4px;">JPG or PNG, will be resized</p>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="profile-name" value="Anis Cheriet">
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" id="profile-location" value="San Francisco">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tagline</label>
+        <input type="text" id="profile-tagline" value="I build things to learn. 30 apps, no excuses.">
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="section">
+      <div class="section-title"><span>🔗</span> Social Links</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>X (Twitter)</label>
+          <input type="url" id="social-x" value="https://x.com/AnisCHERIEET">
+        </div>
+        <div class="form-group">
+          <label>LinkedIn</label>
+          <input type="url" id="social-linkedin" value="https://www.linkedin.com/in/anis-cheriet-196848117/">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Instagram</label>
+          <input type="url" id="social-instagram" value="https://www.instagram.com/anis.cheriet/">
+        </div>
+        <div class="form-group">
+          <label>YouTube</label>
+          <input type="url" id="social-youtube" value="https://www.youtube.com/@ANISCHERIET_US">
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <div class="section-title"><span>🚀</span> Projects</div>
+      <div class="projects-list" id="projects-list">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="add-project-row">
+        <button class="btn btn-sm btn-ghost" onclick="openProjectModal()">+ Add Project</button>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="section">
+      <div class="section-title"><span>⚙️</span> Settings</div>
+      <div class="form-group">
+        <label>Newsletter Google Apps Script URL</label>
+        <input type="url" id="newsletter-url" placeholder="https://script.google.com/macros/...">
+      </div>
+      <div class="form-group">
+        <label>Admin Password (change)</label>
+        <input type="password" id="new-password" placeholder="Leave empty to keep current">
+      </div>
+    </div>
+
+    <!-- Save -->
+    <div style="text-align:center;margin-top:16px;">
+      <button class="btn" id="save-btn" onclick="saveAllChanges()" style="padding:14px 40px;font-size:0.95rem;">
+        Save & Deploy
+      </button>
+      <p id="save-msg" style="font-size:0.8rem;color:#888;margin-top:8px;min-height:1.2em;"></p>
+    </div>
+
+  </div>
+
+  <!-- ====== PROJECT EDIT MODAL ====== -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal">
+      <h2 id="modal-title">Add Project</h2>
+      <div class="form-group">
+        <label>Icon (emoji)</label>
+        <input type="text" id="proj-icon" placeholder="🚀">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="proj-name" placeholder="My App">
+        </div>
+        <div class="form-group">
+          <label>Day</label>
+          <input type="number" id="proj-day" placeholder="1">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea id="proj-desc" placeholder="What does it do?"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>URL</label>
+          <input type="url" id="proj-url" placeholder="https://...">
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="proj-status">
+            <option value="new">New</option>
+            <option value="active">Active</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="text" id="proj-date" placeholder="Feb 25, 2026">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-sm btn-ghost" onclick="closeProjectModal()">Cancel</button>
+        <button class="btn btn-sm" onclick="saveProject()">Save Project</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TOAST ====== -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ========== CONFIG ==========
+    const REPO_OWNER = 'Anis12392';
+    const REPO_NAME = 'anischeriet.com';
+    const BRANCH = 'main';
+    // Default password hash (SHA-256 of "admin123") — change via settings
+    const DEFAULT_HASH = '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9';
+
+    let projects = [];
+    let editingIndex = -1; // -1 = adding new
+    let pendingAvatarBase64 = null;
+    let siteConfig = {};
+
+    // ========== UTILS ==========
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function toast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = `toast ${type} show`;
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // ========== AUTH ==========
+    async function attemptLogin() {
+      const pw = document.getElementById('password-input').value;
+      const hash = await sha256(pw);
+      const storedHash = localStorage.getItem('admin_pw_hash') || DEFAULT_HASH;
+
+      if (hash === storedHash) {
+        localStorage.setItem('admin_session', 'true');
+        showDashboard();
+      } else {
+        document.getElementById('login-error').textContent = 'Wrong password';
+      }
+    }
+
+    document.getElementById('password-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') attemptLogin();
+    });
+
+    function logout() {
+      localStorage.removeItem('admin_session');
+      document.getElementById('dashboard').classList.remove('active');
+      document.getElementById('login-screen').style.display = 'flex';
+      document.getElementById('password-input').value = '';
+      document.getElementById('login-error').textContent = '';
+    }
+
+    function showDashboard() {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('dashboard').classList.add('active');
+      loadData();
+      checkToken();
+    }
+
+    // Auto-login if session exists
+    if (localStorage.getItem('admin_session') === 'true') {
+      showDashboard();
+    }
+
+    // ========== GITHUB API ==========
+    function getToken() {
+      return localStorage.getItem('github_token') || '';
+    }
+
+    function checkToken() {
+      const token = getToken();
+      const dot = document.getElementById('token-dot');
+      const text = document.getElementById('token-status-text');
+
+      if (token) {
+        dot.className = 'token-dot connected';
+        text.textContent = 'Connected (token saved in browser)';
+        document.getElementById('github-token').value = token.slice(0, 8) + '...' + token.slice(-4);
+      } else {
+        dot.className = 'token-dot disconnected';
+        text.textContent = 'Not connected — add your GitHub token to save changes';
+      }
+    }
+
+    function saveToken() {
+      const token = document.getElementById('github-token').value.trim();
+      if (token && !token.includes('...')) {
+        localStorage.setItem('github_token', token);
+        checkToken();
+        toast('Token saved');
+      }
+    }
+
+    async function githubGet(path) {
+      const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${BRANCH}`, {
+        headers: { 'Authorization': `Bearer ${getToken()}`, 'Accept': 'application/vnd.github.v3+json' }
+      });
+      if (!res.ok) throw new Error(`GitHub GET failed: ${res.status}`);
+      return res.json();
+    }
+
+    async function githubPut(path, content, message) {
+      let sha;
+      try {
+        const existing = await githubGet(path);
+        sha = existing.sha;
+      } catch {}
+
+      const body = { message, content: btoa(unescape(encodeURIComponent(content))), branch: BRANCH };
+      if (sha) body.sha = sha;
+
+      const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${getToken()}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || `GitHub PUT failed: ${res.status}`);
+      }
+      return res.json();
+    }
+
+    async function githubPutBinary(path, base64Content, message) {
+      let sha;
+      try {
+        const existing = await githubGet(path);
+        sha = existing.sha;
+      } catch {}
+
+      const body = { message, content: base64Content, branch: BRANCH };
+      if (sha) body.sha = sha;
+
+      const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${getToken()}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (!res.ok) throw new Error(`GitHub PUT binary failed: ${res.status}`);
+      return res.json();
+    }
+
+    // ========== LOAD DATA ==========
+    async function loadData() {
+      try {
+        const res = await fetch('projects.json');
+        projects = await res.json();
+        projects.sort((a, b) => a.day - b.day);
+        renderProjects();
+      } catch (e) {
+        toast('Failed to load projects: ' + e.message, 'error');
+      }
+
+      // Load config from localStorage
+      siteConfig = JSON.parse(localStorage.getItem('site_config') || '{}');
+      if (siteConfig.name) document.getElementById('profile-name').value = siteConfig.name;
+      if (siteConfig.location) document.getElementById('profile-location').value = siteConfig.location;
+      if (siteConfig.tagline) document.getElementById('profile-tagline').value = siteConfig.tagline;
+      if (siteConfig.social_x) document.getElementById('social-x').value = siteConfig.social_x;
+      if (siteConfig.social_linkedin) document.getElementById('social-linkedin').value = siteConfig.social_linkedin;
+      if (siteConfig.social_instagram) document.getElementById('social-instagram').value = siteConfig.social_instagram;
+      if (siteConfig.social_youtube) document.getElementById('social-youtube').value = siteConfig.social_youtube;
+      if (siteConfig.newsletter_url) document.getElementById('newsletter-url').value = siteConfig.newsletter_url;
+    }
+
+    // ========== RENDER PROJECTS ==========
+    function renderProjects() {
+      const list = document.getElementById('projects-list');
+      list.innerHTML = projects.map((p, i) => `
+        <div class="project-row">
+          <div class="proj-icon">${p.icon}</div>
+          <div class="proj-name">${p.name}</div>
+          <div class="proj-desc">${p.description}</div>
+          <span class="proj-status ${p.status}">${p.status}</span>
+          <div class="project-actions">
+            <button class="btn btn-sm btn-ghost" onclick="openProjectModal(${i})">Edit</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteProject(${i})">Del</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ========== PROJECT MODAL ==========
+    function openProjectModal(index = -1) {
+      editingIndex = index;
+      const modal = document.getElementById('project-modal');
+      document.getElementById('modal-title').textContent = index === -1 ? 'Add Project' : 'Edit Project';
+
+      if (index >= 0) {
+        const p = projects[index];
+        document.getElementById('proj-icon').value = p.icon || '';
+        document.getElementById('proj-name').value = p.name || '';
+        document.getElementById('proj-day').value = p.day || '';
+        document.getElementById('proj-desc').value = p.description || '';
+        document.getElementById('proj-url').value = p.url || '';
+        document.getElementById('proj-status').value = p.status || 'new';
+        document.getElementById('proj-date').value = p.date || '';
+      } else {
+        document.getElementById('proj-icon').value = '';
+        document.getElementById('proj-name').value = '';
+        document.getElementById('proj-day').value = projects.length;
+        document.getElementById('proj-desc').value = '';
+        document.getElementById('proj-url').value = '';
+        document.getElementById('proj-status').value = 'new';
+        const now = new Date();
+        document.getElementById('proj-date').value = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      modal.classList.add('active');
+    }
+
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.remove('active');
+    }
+
+    function saveProject() {
+      const p = {
+        icon: document.getElementById('proj-icon').value,
+        name: document.getElementById('proj-name').value,
+        day: parseInt(document.getElementById('proj-day').value) || 0,
+        description: document.getElementById('proj-desc').value,
+        url: document.getElementById('proj-url').value,
+        status: document.getElementById('proj-status').value,
+        date: document.getElementById('proj-date').value
+      };
+
+      if (!p.name) { toast('Project name is required', 'error'); return; }
+
+      if (editingIndex >= 0) {
+        projects[editingIndex] = p;
+      } else {
+        projects.push(p);
+      }
+
+      projects.sort((a, b) => a.day - b.day);
+      renderProjects();
+      closeProjectModal();
+      toast(editingIndex >= 0 ? 'Project updated' : 'Project added');
+    }
+
+    function deleteProject(index) {
+      if (confirm(`Delete "${projects[index].name}"?`)) {
+        projects.splice(index, 1);
+        renderProjects();
+        toast('Project deleted');
+      }
+    }
+
+    // ========== AVATAR UPLOAD ==========
+    function handleAvatarUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // Show preview
+        document.getElementById('avatar-preview').src = e.target.result;
+        // Store base64 (strip data:image/...;base64, prefix)
+        pendingAvatarBase64 = e.target.result.split(',')[1];
+        toast('Photo ready — click Save & Deploy to upload');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // ========== SAVE ALL ==========
+    async function saveAllChanges() {
+      const btn = document.getElementById('save-btn');
+      const msg = document.getElementById('save-msg');
+
+      if (!getToken()) {
+        toast('Add your GitHub token first', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+      msg.textContent = '';
+
+      try {
+        // 1. Save projects.json
+        msg.textContent = 'Updating projects.json...';
+        await githubPut('projects.json', JSON.stringify(projects, null, 2), 'Update projects via admin panel');
+
+        // 2. Save avatar if changed
+        if (pendingAvatarBase64) {
+          msg.textContent = 'Uploading avatar...';
+          await githubPutBinary('images/hero-portrait.jpg', pendingAvatarBase64, 'Update avatar via admin panel');
+          pendingAvatarBase64 = null;
+        }
+
+        // 3. Save site config to localStorage
+        siteConfig = {
+          name: document.getElementById('profile-name').value,
+          location: document.getElementById('profile-location').value,
+          tagline: document.getElementById('profile-tagline').value,
+          social_x: document.getElementById('social-x').value,
+          social_linkedin: document.getElementById('social-linkedin').value,
+          social_instagram: document.getElementById('social-instagram').value,
+          social_youtube: document.getElementById('social-youtube').value,
+          newsletter_url: document.getElementById('newsletter-url').value
+        };
+        localStorage.setItem('site_config', JSON.stringify(siteConfig));
+
+        // 4. Update HTML files with profile/social changes
+        msg.textContent = 'Updating site pages...';
+        await updateHtmlFiles();
+
+        // 5. Update password if changed
+        const newPw = document.getElementById('new-password').value;
+        if (newPw) {
+          const hash = await sha256(newPw);
+          localStorage.setItem('admin_pw_hash', hash);
+          document.getElementById('new-password').value = '';
+          toast('Password updated');
+        }
+
+        msg.textContent = '';
+        toast('All changes saved and pushed to GitHub!');
+      } catch (e) {
+        msg.textContent = '';
+        toast('Error: ' + e.message, 'error');
+        console.error(e);
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Save & Deploy';
+    }
+
+    async function updateHtmlFiles() {
+      const name = document.getElementById('profile-name').value;
+      const location = document.getElementById('profile-location').value;
+      const tagline = document.getElementById('profile-tagline').value;
+      const socialX = document.getElementById('social-x').value;
+      const socialLinkedin = document.getElementById('social-linkedin').value;
+      const socialInstagram = document.getElementById('social-instagram').value;
+      const socialYoutube = document.getElementById('social-youtube').value;
+      const newsletterUrl = document.getElementById('newsletter-url').value;
+
+      // Update index.html and challenge.html
+      for (const file of ['index.html', 'challenge.html']) {
+        try {
+          const fileData = await githubGet(file);
+          let content = decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, ''))));
+
+          // Replace name
+          content = content.replace(/<h1 class="name">.*?<\/h1>/g, `<h1 class="name">${name}</h1>`);
+
+          // Replace tagline
+          content = content.replace(/<p class="tagline"><em>.*?<\/em><\/p>/g, `<p class="tagline"><em>${tagline}</em></p>`);
+
+          // Replace social links
+          if (socialX) content = content.replace(/href="https:\/\/x\.com\/[^"]*"/g, `href="${socialX}"`);
+          if (socialLinkedin) content = content.replace(/href="https:\/\/www\.linkedin\.com\/[^"]*"/g, `href="${socialLinkedin}"`);
+          if (socialInstagram) content = content.replace(/href="https:\/\/www\.instagram\.com\/[^"]*"/g, `href="${socialInstagram}"`);
+          if (socialYoutube) content = content.replace(/href="https:\/\/www\.youtube\.com\/[^"]*"/g, `href="${socialYoutube}"`);
+
+          // Replace newsletter URL
+          if (newsletterUrl) {
+            content = content.replace(/const SHEET_URL = '.*?'/, `const SHEET_URL = '${newsletterUrl}'`);
+          }
+
+          await githubPut(file, content, `Update ${file} via admin panel`);
+        } catch (e) {
+          console.error(`Failed to update ${file}:`, e);
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
