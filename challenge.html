@@ -25,6 +25,17 @@
       </div>
       <p class="tagline"><em>I build things to learn. 30 apps, no excuses.</em></p>
 
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid" aria-label="Card view">
+          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="0" y="0" width="7" height="7" rx="1.5"/><rect x="9" y="0" width="7" height="7" rx="1.5"/><rect x="0" y="9" width="7" height="7" rx="1.5"/><rect x="9" y="9" width="7" height="7" rx="1.5"/></svg>
+          Cards
+        </button>
+        <button class="view-btn" data-view="list" aria-label="List view">
+          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="0" y="1" width="16" height="2.5" rx="1"/><rect x="0" y="6.75" width="16" height="2.5" rx="1"/><rect x="0" y="12.5" width="16" height="2.5" rx="1"/></svg>
+          List
+        </button>
+      </div>
+
       <div class="sidebar-newsletter">
         <p class="newsletter-text">Get notified when I ship something new.</p>
         <form id="email-form" class="email-form">
@@ -50,24 +61,8 @@
       </div>
     </aside>
 
-    <!-- RIGHT column wrapper -->
-    <div class="main-wrapper">
-      <!-- View toggle -->
-      <div class="view-toggle-bar">
-        <span class="toggle-label">View:</span>
-        <button class="view-btn active" data-view="grid" aria-label="Card view">
-          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="0" y="0" width="7" height="7" rx="1.5"/><rect x="9" y="0" width="7" height="7" rx="1.5"/><rect x="0" y="9" width="7" height="7" rx="1.5"/><rect x="9" y="9" width="7" height="7" rx="1.5"/></svg>
-          Cards
-        </button>
-        <button class="view-btn" data-view="list" aria-label="List view">
-          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="0" y="1" width="16" height="2.5" rx="1"/><rect x="0" y="6.75" width="16" height="2.5" rx="1"/><rect x="0" y="12.5" width="16" height="2.5" rx="1"/></svg>
-          List
-        </button>
-      </div>
-
-      <!-- Project cards grid, loaded from projects.json -->
-      <main class="main" id="projects-grid"></main>
-    </div>
+    <!-- RIGHT — project cards grid, loaded from projects.json -->
+    <main class="main" id="projects-grid"></main>
 
   </div>
 
