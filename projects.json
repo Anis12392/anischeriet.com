@@ -1,5 +1,14 @@
 [
   {
+    "name": "Podcast Room Bot",
+    "icon": "🎙️",
+    "description": "Telegram bot for podcast studio access & booking",
+    "url": "https://cherietcompte--frontier-media-room-go.modal.run",
+    "status": "done",
+    "day": 0,
+    "date": "Feb 19, 2026"
+  },
+  {
     "name": "Docubridge",
     "icon": "📄",
     "description": "Document translation tool",
