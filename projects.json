@@ -70,5 +70,14 @@
     "status": "new",
     "day": 7,
     "date": "Feb 25, 2026"
+  },
+  {
+    "name": "Content Scripting Tool",
+    "icon": "🎬",
+    "description": "Scrape viral reels, extract frameworks & generate video scripts",
+    "url": "https://anis12392.github.io/content-scripting-tool/scripts.html",
+    "status": "new",
+    "day": 8,
+    "date": "Mar 3, 2026"
   }
 ]
