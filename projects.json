@@ -58,7 +58,7 @@
     "icon": "🤖",
     "description": "Automated email outreach tool",
     "url": "https://automailer.vercel.app",
-    "status": "new",
+    "status": "done",
     "day": 6,
     "date": "Feb 25, 2026"
   },
@@ -67,7 +67,7 @@
     "icon": "💭",
     "description": "Turn raw thoughts into polished social posts",
     "url": "#",
-    "status": "new",
+    "status": "done",
     "day": 7,
     "date": "Feb 25, 2026"
   },
@@ -76,8 +76,44 @@
     "icon": "🎬",
     "description": "Scrape viral reels, extract frameworks & generate video scripts",
     "url": "https://anis12392.github.io/content-scripting-tool/scripts.html",
-    "status": "new",
+    "status": "done",
     "day": 8,
     "date": "Mar 3, 2026"
+  },
+  {
+    "name": "Program Applyer",
+    "icon": "🎯",
+    "description": "Accelerator & investor pipeline tracker with Google Sheets sync",
+    "url": "#",
+    "status": "done",
+    "day": 9,
+    "date": "Mar 5, 2026"
+  },
+  {
+    "name": "Boîte à Email",
+    "icon": "📬",
+    "description": "AI-native email client with smart categorization & reply drafting",
+    "url": "#",
+    "status": "done",
+    "day": 10,
+    "date": "Mar 9, 2026"
+  },
+  {
+    "name": "Runway Tracker",
+    "icon": "💰",
+    "description": "Startup expense & runway tracking dashboard",
+    "url": "#",
+    "status": "done",
+    "day": 11,
+    "date": "Mar 12, 2026"
+  },
+  {
+    "name": "Maissa",
+    "icon": "🎬",
+    "description": "Movie & show recommendation app with TMDB API",
+    "url": "#",
+    "status": "done",
+    "day": 12,
+    "date": "Mar 12, 2026"
   }
 ]
