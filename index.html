@@ -22,7 +22,7 @@
       <div class="nav-links">
         <a href="#story">My Story</a>
         <a href="#proof">Track Record</a>
-        <a href="#now">What I'm Building</a>
+        <a href="#now">Chargebotic</a>
         <a href="#contact" class="nav-cta">Let's Talk</a>
       </div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
@@ -323,13 +323,9 @@
           <h4>Maison Salomon</h4>
           <p>First startup at Station F. Helped seniors adopt technology during COVID.</p>
         </div>
-      </div>
-
-      <div class="apps-section">
-        <h3 class="apps-title">30 Apps Challenge <span class="apps-counter" id="apps-counter"></span></h3>
-        <div class="apps-grid" id="projects-grid"></div>
-        <div style="text-align:center; margin-top:24px;">
-          <a href="challenge.html" class="btn btn-outline">View full challenge page</a>
+        <div class="previous-card">
+          <a href="challenge.html"><h4>30 Apps Challenge &rarr;</h4></a>
+          <p>Building 30 apps in public to ship fast and think in products.</p>
         </div>
       </div>
     </div>
@@ -406,38 +402,6 @@
           a.className = 'social-icon';
           a.innerHTML = socialSVGs[key] || '';
           el.appendChild(a);
-        }
-      });
-
-    // 30 Apps
-    const badgeMap = { done: 'Done', active: 'Active', new: 'New' };
-    fetch('projects.json')
-      .then(r => r.json())
-      .then(projects => {
-        const grid = document.getElementById('projects-grid');
-        const counter = document.getElementById('apps-counter');
-        if (counter) counter.textContent = `${projects.length}/30`;
-        projects.sort((a, b) => a.day - b.day);
-        projects.forEach(p => {
-          const card = document.createElement('a');
-          card.href = p.url || '#';
-          card.className = 'app-card';
-          if (p.url && p.url !== '#') card.target = '_blank';
-          card.innerHTML = `
-            <div class="app-card-top">
-              <span class="app-icon">${p.icon}</span>
-              <span class="app-badge badge-${p.status}">${badgeMap[p.status] || p.status}</span>
-            </div>
-            <h4>${p.name}</h4>
-            <p>${p.description}</p>
-            <span class="app-day">Day ${p.day} · ${p.date}</span>`;
-          grid.appendChild(card);
-        });
-        for (let i = 0; i < 4; i++) {
-          const slot = document.createElement('div');
-          slot.className = 'app-card app-card-locked';
-          slot.innerHTML = `<div class="app-card-top"><span class="app-icon">&#128274;</span></div><h4>Day ${projects.length + 1 + i}</h4><p>Coming soon...</p>`;
-          grid.appendChild(slot);
         }
       });
 
