@@ -299,10 +299,30 @@ a { text-decoration: none; color: inherit; }
    WHAT I'M BUILDING
    ============================ */
 
+.now-single { margin-bottom: 40px; }
+
 .now-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 16px; margin-bottom: 56px;
 }
+
+.previous-title {
+  font-size: 0.85rem; font-weight: 600; color: var(--text-light);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
+}
+
+.previous-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin-bottom: 48px;
+}
+
+.previous-card {
+  padding: 20px; background: var(--bg-alt); border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+}
+
+.previous-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+.previous-card p { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
 
 .now-card {
   padding: 24px; background: var(--bg-alt); border: 1px solid var(--border-light);
@@ -444,6 +464,7 @@ a { text-decoration: none; color: inherit; }
   .proof-grid { grid-template-columns: 1fr; }
   .value-grid { grid-template-columns: 1fr; }
   .now-grid { grid-template-columns: 1fr; }
+  .previous-grid { grid-template-columns: 1fr; }
   .apps-grid { grid-template-columns: repeat(2, 1fr); }
 
   .section { padding: 48px 0; }
